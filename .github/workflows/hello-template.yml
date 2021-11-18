@@ -1,15 +1,20 @@
 on:
   workflow_call:
-  name: Hello-Template
+    inputs:
+      who-to-greet:
+        description: 'just a name...'
+        default: 'the world'
+        required: false
+        type: string
 
-  jobs:
-    test:
-      runs-on: ubuntu-latest
+jobs:
+  test:
+    runs-on: ubuntu-latest
 
-      steps:
-        - uses: actions/checkout@v2
-        - run: npm install @octokit/action
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install @octokit/action
 
-        - uses: actions/hello-world-docker-action@v1
-          with:
-            who-to-greet: 'Mona the Octocat - TEMPLATE'
+      - uses: actions/hello-world-docker-action@v1
+        with:
+          who-to-greet: ${{ inputs.who-to-greet }}
