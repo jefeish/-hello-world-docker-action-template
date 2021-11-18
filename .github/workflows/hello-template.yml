@@ -1,5 +1,11 @@
 on:
   workflow_call:
+    inputs:
+      who-to-greet:
+        description: 'just a name...'
+        default: 'the world'
+        required: false
+        type: string
 
 jobs:
   test:
