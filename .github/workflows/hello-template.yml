@@ -1,6 +1,6 @@
 on:
   workflow_call:
-  name: Hello
+  name: Hello-Template
 
   jobs:
     test:
